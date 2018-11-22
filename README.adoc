@@ -207,30 +207,3 @@ image::lgs-levels.png[width=20%]
 .Graphical view
 image::lgs-levels-org.png[width=60%]
 
-== Project description
-
-You will be working by teams of two (please fill the following link:{teamsURL}[shared document]).
-Each team will have to 
-
-. propose a requirement document, as you learned how to do it in the main course ({cours}),
-. propose a Stimulus version and analysis of the requirements through a report + source files.
-
-Each team will have its own branch (with the team name as naming root if many branches are used).
-
-The report should be in Asciidoc or Markdown format, pointing eventually to shared documents.
-
-=== Things to be done
-
-. Individually, install {stimulus} on your Windows computer:
-.. Launch the {stimulus} installer
-.. Generate the number required for the licence
-.. Send the email as required in order to get the licence file (for next course)
-. Add your group in the shared document: {teamsURL}
-. Read the <<source>> document
-. Organise the requirements according to the _Vision et Périmètre_ document studied in {cours} (=> 4h TD 5/11)
-+
-TIP: For the section you are not able to complete, identify the activities (elicitation, analysis, v&v, ...) and actions (questions, inqueries, ...) that they would require.
-+
-. Install and play with the Stimulus tool through the tutorial (=> 4h TD 7/11)
-. Implements (parts of) the requirements in Stimulus (=> 4h TD 14/11 morning)
-. Work on your reports / Finalize documents and push in repo (=> 2h TD 14/11 afternoon)
