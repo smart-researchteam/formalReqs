@@ -1,209 +1,39 @@
 = Formal Requirements Materials
+//-------------------------------------
+// Style and local definitions
 :toc: 
 :numbered:
 :EiffelStudio: https://www.eiffel.com/eiffelstudio/[EiffelStudio]
 :imagesdir: images
 :icons: font
+:innopolis: https://university.innopolis.ru/en/[Innopolis University]
+:utoulouse: https://en.univ-toulouse.fr/[Toulouse University]
 
-This repository collects usefull material and pointers to use our proposed method for formalizing requirements.
+// icons for GitHub
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+//-------------------------------------
+
+WARNING: Work in progress!!
 
 == Context
 
-Joint effort between Innopolis University and Toulouse University.
+This repository collects useful material and pointers to use our approach and tools provided in the joint effort between {innopolis} and {utoulouse} for formalizing requirements.
+
 
 == Tools
 
 You will need to install {EiffelStudio}.
 
-== First steps
+== Tutorials
 
-== References and usefull links
+Here is the list of the current tutorials:
 
-
-== Description of the case study
-
-Here's the description of the LGS.
-
-The following text contains the initial description of the case study (cf. <<source>>) but where each line has a number for further traceability feature.
-
-TIP: Thanks to this, one can reference in a documentation or a model to the precise line number such as, e.g., {projectURL}/blob/master/architecture.txt#L1 !
-
-=== General description
-
-ifndef::env-github[]
-
-[source,asciidoc,linenums,options="nowrap"]
-----
-include::description.txt[]
-----
-
-endif::[]
-
-ifdef::env-github[]
-link:description.txt[]
-endif::[]
-
-.Landing set (taken from <<source>>)
-image::landingSet.png[width=50%]
-
-.The landing sequence (taken from <<source>>)
-image::landingSequence.png[width=50%]
-
-=== Architecture
-
-ifndef::env-github[]
-[source,asciidoc,linenums,options="nowrap"]
-----
-include::architecture.txt[]
-----
-endif::[]
-
-ifdef::env-github[]
-link:architecture.txt[]
-endif::[]
-
-.Global architecture (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/architecture.txt#L1[this text])
-image::globalArchitecture.png[width=50%]
-
-.Architecture of the hydraulic part (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/architecture.txt#L10[this text])
-image::hydraulicPart.png[width=50%]
-
-.Digital architecture (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/architecture.txt#L42[this text])
-image::digitalPart.png[width=50%]
-
-=== Hydraulic Behavior
-
-.Electrical outputs of the computing module k (k= 1,2) (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/architecture.txt#L93[this text])
-image::electricalOutputs.png[width=50%]
-
-==== The analogical switch
-
-ifndef::env-github[]
-[source,asciidoc,linenums,options="nowrap"]
-----
-include::analogical.txt[]
-----
-endif::[]
-
-ifdef::env-github[]
-link:analogical.txt[]
-endif::[]
-
-.Interface of the analogical switch (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/analogical.txt#L14[this text])
-image::analogicalSwitchInterface.png[width=50%]
-
-.Physical behavior of the analogical switch (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/analogical.txt#L14[this text])
-image::analogicalSwitchBehavior.png[width=50%]
-
-==== Electro-valves
-
-ifndef::env-github[]
-[source,asciidoc,linenums,options="nowrap"]
-----
-include::electro-valves.txt[]
-----
-endif::[]
-
-ifdef::env-github[]
-link:electro-valves.txt[]
-endif::[]
-
-.An electro-valve equipment (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/electro-valves.txt#L2[this text])
-image::electro-valve.png[width=50%]
-
-==== Cylinders
-
-ifndef::env-github[]
-[source,asciidoc,linenums,options="nowrap"]
-----
-include::cylinders.txt[]
-----
-endif::[]
-
-ifdef::env-github[]
-link:cylinders.txt[]
-endif::[]
-
-.Extension and retraction of a cylinder (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/cylinders.txt#L2[this text])
-image::extension.png[width=50%]
-
-.Integration Gear (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/cylinders.txt#L8[this text])
-image::integration.png[width=50%]
-
-Table 1. Durations table (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/cylinders.txt#L22[this text]) :
-
-image::durationTable.png[width=50%]
-
-.Integration Door (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/cylinders.txt#L15[this text])
-image::integrationDoor.png[width=50%]
-
-.Example of the front gear angle evolution (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/cylinders.txt#L24[this text])
-image::example.png[width=50%]
-
-=== Software specification
-
-==== Expected scenarios in normal mode
-
-ifndef::env-github[]
-[source,asciidoc,linenums,options="nowrap"]
-----
-include::scenarios.txt[]
-----
-endif::[]
-
-ifdef::env-github[]
-link:scenarios.txt[]
-endif::[]
-
-==== Timing constraints
-
-ifndef::env-github[]
-[source,asciidoc,linenums,options="nowrap"]
-----
-include::timing.txt[]
-----
-endif::[]
-
-ifdef::env-github[]
-link:timing.txt[]
-endif::[]
-
-==== Health monitoring and expected scenarios in case of inconsistency
-
-ifndef::env-github[]
-[source,asciidoc,linenums,options="nowrap"]
-----
-include::health.txt[]
-----
-endif::[]
-
-ifdef::env-github[]
-link:health.txt[]
-endif::[]
-
-=== Requirements / Properties
-
-ifndef::env-github[]
-[source,asciidoc,linenums,options="nowrap"]
-----
-include::reqs.txt[]
-----
-endif::[]
-
-ifdef::env-github[]
-link:reqs.txt[]
-endif::[]
-
-
-=== System organisation
-
-We will have to organise the system in levels.
-
-Here are some examples of model organisation in SysML:
-
-.Model explorer view
-image::lgs-levels.png[width=20%]
-
-.Graphical view
-image::lgs-levels-org.png[width=60%]
+- A simple Clock example
+- The Landing Gear System: link:LGS.adoc[]
 
