@@ -30,7 +30,7 @@ TIP: Thanks to this, one can reference in a documentation or a model to the prec
 
 === General description
 
-ifndef::env-gitlab[]
+ifndef::env-github[]
 
 [source,asciidoc,linenums,options="nowrap"]
 ----
@@ -39,7 +39,7 @@ include::description.txt[]
 
 endif::[]
 
-ifdef::env-gitlab[]
+ifdef::env-github[]
 link:description.txt[]
 endif::[]
 
@@ -51,14 +51,14 @@ image::landingSequence.png[width=50%]
 
 === Architecture
 
-ifndef::env-gitlab[]
+ifndef::env-github[]
 [source,asciidoc,linenums,options="nowrap"]
 ----
 include::architecture.txt[]
 ----
 endif::[]
 
-ifdef::env-gitlab[]
+ifdef::env-github[]
 link:architecture.txt[]
 endif::[]
 
@@ -78,14 +78,14 @@ image::electricalOutputs.png[width=50%]
 
 ==== The analogical switch
 
-ifndef::env-gitlab[]
+ifndef::env-github[]
 [source,asciidoc,linenums,options="nowrap"]
 ----
 include::analogical.txt[]
 ----
 endif::[]
 
-ifdef::env-gitlab[]
+ifdef::env-github[]
 link:analogical.txt[]
 endif::[]
 
@@ -97,14 +97,14 @@ image::analogicalSwitchBehavior.png[width=50%]
 
 ==== Electro-valves
 
-ifndef::env-gitlab[]
+ifndef::env-github[]
 [source,asciidoc,linenums,options="nowrap"]
 ----
 include::electro-valves.txt[]
 ----
 endif::[]
 
-ifdef::env-gitlab[]
+ifdef::env-github[]
 link:electro-valves.txt[]
 endif::[]
 
@@ -113,14 +113,14 @@ image::electro-valve.png[width=50%]
 
 ==== Cylinders
 
-ifndef::env-gitlab[]
+ifndef::env-github[]
 [source,asciidoc,linenums,options="nowrap"]
 ----
 include::cylinders.txt[]
 ----
 endif::[]
 
-ifdef::env-gitlab[]
+ifdef::env-github[]
 link:cylinders.txt[]
 endif::[]
 
@@ -144,53 +144,53 @@ image::example.png[width=50%]
 
 ==== Expected scenarios in normal mode
 
-ifndef::env-gitlab[]
+ifndef::env-github[]
 [source,asciidoc,linenums,options="nowrap"]
 ----
 include::scenarios.txt[]
 ----
 endif::[]
 
-ifdef::env-gitlab[]
+ifdef::env-github[]
 link:scenarios.txt[]
 endif::[]
 
 ==== Timing constraints
 
-ifndef::env-gitlab[]
+ifndef::env-github[]
 [source,asciidoc,linenums,options="nowrap"]
 ----
 include::timing.txt[]
 ----
 endif::[]
 
-ifdef::env-gitlab[]
+ifdef::env-github[]
 link:timing.txt[]
 endif::[]
 
 ==== Health monitoring and expected scenarios in case of inconsistency
 
-ifndef::env-gitlab[]
+ifndef::env-github[]
 [source,asciidoc,linenums,options="nowrap"]
 ----
 include::health.txt[]
 ----
 endif::[]
 
-ifdef::env-gitlab[]
+ifdef::env-github[]
 link:health.txt[]
 endif::[]
 
 === Requirements / Properties
 
-ifndef::env-gitlab[]
+ifndef::env-github[]
 [source,asciidoc,linenums,options="nowrap"]
 ----
 include::reqs.txt[]
 ----
 endif::[]
 
-ifdef::env-gitlab[]
+ifdef::env-github[]
 link:reqs.txt[]
 endif::[]
 
