@@ -3,11 +3,14 @@
 // Style and local definitions
 :toc: 
 :numbered:
-:EiffelStudio: https://www.eiffel.com/eiffelstudio/[EiffelStudio]
 :imagesdir: images
 :icons: font
-:innopolis: https://university.innopolis.ru/en/[Innopolis University]
-:utoulouse: https://en.univ-toulouse.fr/[Toulouse University]
+:innopolis: https://university.innopolis.ru/en[Innopolis University]
+:utoulouse: https://en.univ-toulouse.fr[Toulouse University]
+:eveURL: http://se.inf.ethz.ch/research/eve/builds
+:eve: {eveURL}[Eiffel Verification Environment]
+:EiffelStudioURL: https://www.eiffel.com/eiffelstudio
+:EiffelStudio: {EiffelStudioURL}[EiffelStudio]
 
 // icons for GitHub
 ifdef::env-github[]
@@ -34,6 +37,6 @@ You will need to install {EiffelStudio}.
 
 Here is the list of the current tutorials:
 
-- A simple Clock example
+- A simple Clock example: link:Clock.adoc[]
 - The Landing Gear System: link:LGS.adoc[]
 

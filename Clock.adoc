@@ -1,0 +1,17 @@
+:projectURL: https://github.com/smart-researchteam/formalReqs
+:imagesdir: images
+:icons: font
+
+== Description of the case study
+
+We are going to implement a clock that satisfies the 24 hour specification given in 
+https://simple.wikipedia.org/wiki/24-hour_clock[Wikipedia]. 
+
+For traceability purpose, and more precisely to allow precise reference of specific parts of the specification, we have reproduced the Wikipedia page in a https://docs.google.com/document/d/1RV38YvrCvhXrVNrVh2I5_hhFDPmKHSOGOZ04aHKdGhg/edit[shared document].   
+
+
+== First steps
+
+. Make sure your system fulfill the requirements (see https://github.com/smart-researchteam/formalReqs#2-tools[Required Environment section])
+. Download the templates library by cloning this project: https://github.com/anaumchev/requirements_templates
+
