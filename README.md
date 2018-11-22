@@ -1,2 +1,0 @@
-# formalReqs
-Formal Requirements Materials

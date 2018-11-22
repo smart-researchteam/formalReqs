@@ -1,0 +1,19 @@
+= Formal Requirements Materials
+:EiffelStudio: https://www.eiffel.com/eiffelstudio/[EiffelStudio]
+
+This repository collects usefull material and pointers to use our proposed method for formalizing requirements.
+
+== Context
+
+Joint effort between Innopolis University and Toulouse University.
+
+== Tools
+
+You will need to install {EiffelStudio}.
+
+== First steps
+
+== References and usefull links
+
+
+
