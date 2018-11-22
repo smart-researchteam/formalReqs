@@ -1,0 +1,7 @@
+Because of hydraulic constraints, timing constraints must be satisfied by the control software.
+Because of inertia of the oil pressure,
+– stimulations of the general electro-valve and of the maneuvering electro-valve must be separated by at least 200ms,
+– orders to stop the stimulation of the general electro-valve and of the maneuvering electro-valve must be separated by at least 1s.
+Because of inertia of the oil pressure,
+– two contrary orders (closure / opening doors, extension / retraction gears) must be separated by at least 100ms.
+

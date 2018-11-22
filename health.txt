@@ -1,0 +1,40 @@
+The second objective of the control software is to detect anomalies and to inform the pilot. 
+Anomalies are caused by failures on hydraulic equipment, electrical components, or computing modules.
+Each sensor is triplicated. 
+The first activity of the control software is to select one of these three values. 
+Let us call X a sensor and Xi (t) i = 1, 2, 3 the three values of X received at time t:
+– If at t the three channels are considered as valid and are equal, then the value considered by the control software is this common value.
+– If at t one channel is different from the two others for the first time (i.e., the three channels were considered as valid up to t), then this channel is considered as invalid and is definitely eliminated. 
+Only the two remaining channels are considered in the future. 
+At time t, the value considered by the control software is the common value of the two remaining channels.
+– If a channel has been eliminated previously, and if at t the two remaining channels are not equal, then the sensor is definitely considered as invalid.
+An anomaly is detected each time a sensor is definitely considered as invalid.
+Analogical switch monitoring.
+– If the analogical switch is seen open 1 second after the handle position has changed, then the switch is considered as invalid.
+– If the analogical switch is seen closed 1.5 second after a time interval of 20 seconds during which the handle position has not changed, then the switch is considered as invalid.
+In these two cases, an anomaly is detected.
+
+Pressure sensor monitoring:
+– If the hydraulic circuit is still unpressurized 2 seconds after the general
+electro-valve has been stimulated, then an anomaly is detected in the hydraulic circuit.
+– If the hydraulic circuit is still pressurized 10 seconds after the general electrovalve has been stopped, then an anomaly is detected in the hydraulic circuit.
+
+Doors motion monitoring:
+– if the control software does not see the value door closed[x] = false for all x ∈ {front, left, right} 7 seconds after stimulation of the opening electro-valve, then the doors are considered as blocked and an anomaly is detected.
+– if the control software does not see the value door open[x] = true for all x ∈ {front, left, right} 7 seconds after stimulation of the opening electrovalve, then the doors are considered as blocked and an anomaly is detected.
+– if the control software does not see the value door open[x] = false for all x ∈ {front, left, right} 7 seconds after stimulation of the closure electro-valve, then the doors are considered as blocked and an anomaly is detected.
+– if the control software does not see the value door closed[x] = true for all x ∈ {front, left, right} 7 seconds after stimulation of the closure electro-valve, then the doors are considered as blocked and an anomaly is detected.
+
+Gears motion monitoring.
+– if the control software does not see the value gear extended[x] = false for all x ∈ {front, left, right} 7 seconds after stimulation of the retraction electrovalve, then the gears are considered as blocked and an anomaly is detected.
+– if the control software does not see the value gear retracted[x] = true for all x ∈ {front, left, right} 10 seconds after stimulation of the retraction electrovalve, then the gears are considered as blocked and an anomaly is detected.
+– if the control software does not see the value gear retracted[x] = false for all x ∈ {front, left, right} 7 seconds after stimulation of the extension electrovalve, then the gears are considered as blocked and an anomaly is detected.
+– if the control software does not see the value gear extended[x] = true for all x ∈ {front, left, right} 10 seconds after stimulation of the extension electrovalve, then the gears are considered as blocked and an anomaly is detected.
+
+Expected behavior in case of anomaly. 
+Whenever an anomaly is detected, the system is globally considered as invalid. 
+The data anomalyk = true is sent to the pilot interface (where k is the part number of the module that has detected the anomaly). 
+This message is then maintained forever. 
+The effect of this action is to put on the red light “landing gear system failure”.
+Otherwise (no anomaly ever happened), the data anomalyk = false is sent and maintained to the pilot interface. 
+The effect of this action is to keep off the red light “landing gear system failure”.

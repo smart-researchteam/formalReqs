@@ -1,0 +1,9 @@
+The  landing  system  is  in  charge  of  maneuvering  landing  gears  and  associated  doors.  
+The  landing  system  is  composed  of  3  landing  sets:  front,  left  and right. 
+Each landing set contains a door, a landing-gear and associated hydraulic cylinders (see Fig. 1). 
+The system is controlled digitally in nominal mode and analogically in emergency mode. 
+In this case study, we do not consider the emergency mode. 
+However, in order to allow the pilot to activate the emergency command, the system has to elaborate health parameters for all the equipments involved in the landing gear function. 
+This health monitoring part is in the scope of the case study.
+In nominal mode, the landing sequence is: open the doors of the landing gearboxes, extend the landing gears and close the doors. This sequence is illustrated in Figure 2.
+After taking off, the retraction sequence to be performed is: open the doors, retract the landing gears and close the doors.

@@ -1,0 +1,39 @@
+Cylinders are pure hydraulic equipments. 
+As shown on Figure 10, they begin to move when they receive hydraulic pressure, and they stop to move when the pressure goes down or when they reach the end of their race.
+Gear cylinders are locked in high or down position by means of a latching box mechanism (the latching boxes are physically on the gears, one for each position). 
+When a gear cylinder is locked in high (resp. down) position and when it receives pressure from the high (resp. down) hydraulic circuit,
+– first it is unlocked from the high (resp. down) position
+– then it moves to the down (resp. high) position
+– and finally it is locked in the down (resp. high) position.
+The behavior of the gear (including the values returned by the gear position sensors) is described on Figure 11.
+Door cylinders are locked (by means of two latching boxes on each door) only in closed position. 
+Doors are maintained open by maintaining pressure in extension circuit. 
+When a door cylinder is locked in closed position and when it receives pressure from the extension hydraulic circuit,
+– first it is unlocked from the closed position
+– then it moves to the open position
+– and finally it is maintained in the open position as long as the pressure is maintained in the hydraulic extension circuit.
+The behavior of the door (including the values returned by the door position sensors) is described on Figure 12.
+All these operations are done automatically with the hydraulic pressure only. 
+No electrical part is involved in cylinders.
+These operations take a certain amount of time, depending on the position of the cylinder in the aircraft and in the hydraulic circuit. 
+The durations are given in the array below. 
+The values are only mean values. 
+The true durations can vary around these values up to 20%.
+Durations are given in Table 1.
+Note that it is possible to stop and to inverse the motion of any cylinder at any time.
+An example of the front-gear movement is given on Figure 13. 
+This scenario
+is based on the mean values given in the previous table. 
+Let us suppose that the front gear is locked in the extended position when the pressure arrives in the retraction circuit (first red arrow on the left). 
+Then the gear is unlocked 0.4s later. 
+It goes up during 1.6s. 
+And finally it is locked in the retracted position 2.4s after the arrival of the pressure in the hydraulic circuit. 
+Let us consider now that the pressure arrives in the extension circuit. 
+The gear is unlocked 0.8s later.
+It begins moving down. Let us suppose now that the pressure is stopped. 
+Then the cylinder stops as well in the current position. 
+If the pressure arrives again in the retraction circuit, the gear goes up immediately from this current position at normal speed. 
+In the same way, the last part of the scenario describes the extension phase without any interruption.
+In addition to this normal behavior, any cylinder can fail. 
+We consider only permanent failures: the cylinder remains blocked in the last position (down, high, or between these two positions). 
+Any failure can occur at any time.

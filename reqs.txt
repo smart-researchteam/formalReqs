@@ -1,0 +1,45 @@
+The requirements to be proved on the system are divided into two parts: normal mode requirements, and failure mode requirements
+
+Normal mode requirements
+
+Requirement R1 :
+– (R11 ) When the command line is working (normal mode), if the landing gear command handle has been pushed DOWN and stays DOWN, then the gears will be locked down and the doors will be seen closed less than 15 seconds after the handle has been pushed;
+– (R12 ) When the command line is working (normal mode), if the landing gear command handle has been pushed UP and stays UP, then the gears will be locked retracted and the doors will be seen closed less than 15 seconds after the handle has been pushed.
+
+Note that a weaker version of these two requirements could be considered as well. 
+This weaker version does not take into account quantitative time.
+– (R11 bis) When the command line is working (normal mode), if the landing gear command handle has been pushed DOWN and stays DOWN, then eventually the gears will be locked down and the doors will be seen closed;
+– (R12 bis) When the command line is working (normal mode), if the landing gear command handle has been pushed UP and stays UP, then eventually the gears will be locked retracted and the doors will be seen closed.
+
+Requirement R2 :
+– (R21 ) When the command line is working (normal mode), if the landing gear command handle remains in the DOWN position, then retraction sequence is not observed.
+– (R22 ) When the command line is working (normal mode), if the landing gear command handle remains in the UP position, then outgoing sequence is not observed.
+
+Requirement R3 :
+– (R31 ) When the command line is working (normal mode), the stimulation of the gears outgoing or the retraction electro-valves can only happen when the three doors are locked open.
+– (R32 ) When the command line is working (normal mode), the stimulation of the doors opening or closure electro-valves can only happen when the three gears are locked down or up.
+
+Requirement R4 :
+– (R41 ) When the command line is working (normal mode), opening and closure doors electro-valves are not stimulated simultaneously.
+– (R42 ) When the command line is working (normal mode), outgoing and retraction gears electro-valves are not stimulated simultaneously.
+
+Requirement R5 :
+– (R51 )When the command line is working (normal mode), it is not possible to stimulate the maneuvering electro-valve (opening, closure, outgoing or retraction) without stimulating the general electro-valve.
+
+Failure mode requirements
+
+Requirement R6 :
+– (R61 ) If one of the three doors is still seen locked in the closed position more than 7 seconds after stimulating the opening electro-valve, then the boolean output normal mode is set to false.
+– (R62 ) If one of the three doors is still seen locked in the open position more than 7 seconds after stimulating the closure electro-valve, then the boolean output normal mode is set to false.
+– (R63 ) If one of the three gears is still seen locked in the down position more than 7 seconds after stimulating the retraction electro-valve, then the boolean output normal mode is set to false.
+– (R64 ) If one of the three gears is still seen locked in the up position more than 7 seconds after stimulating the outgoing electro-valve, then the boolean output normal mode is set to false.
+
+Requirement R7 :
+– (R71 ) If one of the three doors is not seen locked in the open position more than 7 seconds after stimulating the opening electro-valve, then the boolean output normal mode is set to false.
+– (R72 ) If one of the three doors is not seen locked in the closed position more than 7 seconds after stimulating the closure electro-valve, then the boolean output normal mode is set to false.
+– (R73 ) If one of the three gears is not seen locked in the up position more than 10 seconds after stimulating the retraction electro-valve, then the boolean output normal mode is set to false.
+– (R74 ) If one of the three gears is not seen locked in the down position more than 10 seconds after stimulating the outgoing electro-valve, then the boolean output normal mode is set to false.
+
+Requirement R8 :
+– (R81 ) When at least one computing module is working, if the landing gear command handle has been DOWN for 15 seconds, and if the gears are not locked down after 15 seconds, then the red light ”landing gear system failure” is on.
+– (R82 ) When at least one computing module is working, if the landing gear command handle has been UP for 15 seconds, and if the gears are not locked retracted after 15 seconds, then the red light ”landing gear system failure” is on.

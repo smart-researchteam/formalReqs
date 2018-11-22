@@ -1,19 +1,299 @@
-= Formal Requirements Materials
-:EiffelStudio: https://www.eiffel.com/eiffelstudio/[EiffelStudio]
+= Requirements Engineering Project
+:toc: 
+:numbered:
+:projectURL: https://mi-git.univ-tlse2.fr/Jean-michel.BRUEL/m2-ie-project
+:cours: https://iris.univ-tlse2.fr/moodle-ent/course/view.php?id=18388[MI0A903V - Ingénierie des Exigences]
+:imagesdir: images
+:icons: font
+:teamsURL: https://lite.framacalc.org/m2ice-ie-project
+:argosimurl: https://argosim.com/
+:argosim: {argosimurl}[Argosim]
+:bruno: mailto:bruno.jofret@argosim.com[Bruno Jofret]
+:stimulus: https://argosim.com/product-overview/[Stimulus]
 
-This repository collects usefull material and pointers to use our proposed method for formalizing requirements.
+This project aims at precisely define the requirements for a particular system: the **L**anding **G**ear **S**ystem (LGS).
+This system has been described in 2014 by Frédéric Boniol and Virginie Wiels for the purpose of comparing modelsation techniques.
+Main problem is that the document is not really a requirements document as such.
 
-== Context
+== Description of the case study
 
-Joint effort between Innopolis University and Toulouse University.
+Here's the description of the LGS.
 
-== Tools
+The following text contains the initial description of the case study (cf. <<source>>) but where each line has a number for further traceability feature.
 
-You will need to install {EiffelStudio}.
+TIP: Thanks to this, one can reference in a documentation or a model to the precise line number such as, e.g., {projectURL}/blob/master/architecture.txt#L1 !
 
-== First steps
+=== General description
 
-== References and usefull links
+ifndef::env-gitlab[]
+
+[source,asciidoc,linenums,options="nowrap"]
+----
+include::description.txt[]
+----
+
+endif::[]
+
+ifdef::env-gitlab[]
+link:description.txt[]
+endif::[]
+
+.Landing set (taken from <<source>>)
+image::landingSet.png[width=50%]
+
+.The landing sequence (taken from <<source>>)
+image::landingSequence.png[width=50%]
+
+=== Architecture
+
+ifndef::env-gitlab[]
+[source,asciidoc,linenums,options="nowrap"]
+----
+include::architecture.txt[]
+----
+endif::[]
+
+ifdef::env-gitlab[]
+link:architecture.txt[]
+endif::[]
+
+.Global architecture (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/architecture.txt#L1[this text])
+image::globalArchitecture.png[width=50%]
+
+.Architecture of the hydraulic part (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/architecture.txt#L10[this text])
+image::hydraulicPart.png[width=50%]
+
+.Digital architecture (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/architecture.txt#L42[this text])
+image::digitalPart.png[width=50%]
+
+=== Hydraulic Behavior
+
+.Electrical outputs of the computing module k (k= 1,2) (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/architecture.txt#L93[this text])
+image::electricalOutputs.png[width=50%]
+
+==== The analogical switch
+
+ifndef::env-gitlab[]
+[source,asciidoc,linenums,options="nowrap"]
+----
+include::analogical.txt[]
+----
+endif::[]
+
+ifdef::env-gitlab[]
+link:analogical.txt[]
+endif::[]
+
+.Interface of the analogical switch (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/analogical.txt#L14[this text])
+image::analogicalSwitchInterface.png[width=50%]
+
+.Physical behavior of the analogical switch (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/analogical.txt#L14[this text])
+image::analogicalSwitchBehavior.png[width=50%]
+
+==== Electro-valves
+
+ifndef::env-gitlab[]
+[source,asciidoc,linenums,options="nowrap"]
+----
+include::electro-valves.txt[]
+----
+endif::[]
+
+ifdef::env-gitlab[]
+link:electro-valves.txt[]
+endif::[]
+
+.An electro-valve equipment (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/electro-valves.txt#L2[this text])
+image::electro-valve.png[width=50%]
+
+==== Cylinders
+
+ifndef::env-gitlab[]
+[source,asciidoc,linenums,options="nowrap"]
+----
+include::cylinders.txt[]
+----
+endif::[]
+
+ifdef::env-gitlab[]
+link:cylinders.txt[]
+endif::[]
+
+.Extension and retraction of a cylinder (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/cylinders.txt#L2[this text])
+image::extension.png[width=50%]
+
+.Integration Gear (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/cylinders.txt#L8[this text])
+image::integration.png[width=50%]
+
+Table 1. Durations table (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/cylinders.txt#L22[this text]) :
+
+image::durationTable.png[width=50%]
+
+.Integration Door (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/cylinders.txt#L15[this text])
+image::integrationDoor.png[width=50%]
+
+.Example of the front gear angle evolution (taken from <<source>>, and corresponding to link:{projectURL}/blob/master/cylinders.txt#L24[this text])
+image::example.png[width=50%]
+
+=== Software specification
+
+==== Expected scenarios in normal mode
+
+ifndef::env-gitlab[]
+[source,asciidoc,linenums,options="nowrap"]
+----
+include::scenarios.txt[]
+----
+endif::[]
+
+ifdef::env-gitlab[]
+link:scenarios.txt[]
+endif::[]
+
+==== Timing constraints
+
+ifndef::env-gitlab[]
+[source,asciidoc,linenums,options="nowrap"]
+----
+include::timing.txt[]
+----
+endif::[]
+
+ifdef::env-gitlab[]
+link:timing.txt[]
+endif::[]
+
+==== Health monitoring and expected scenarios in case of inconsistency
+
+ifndef::env-gitlab[]
+[source,asciidoc,linenums,options="nowrap"]
+----
+include::health.txt[]
+----
+endif::[]
+
+ifdef::env-gitlab[]
+link:health.txt[]
+endif::[]
+
+=== Requirements / Properties
+
+ifndef::env-gitlab[]
+[source,asciidoc,linenums,options="nowrap"]
+----
+include::reqs.txt[]
+----
+endif::[]
+
+ifdef::env-gitlab[]
+link:reqs.txt[]
+endif::[]
 
 
+=== System organisation
 
+We will have to organise the system in levels.
+
+Here are some examples of model organisation in SysML:
+
+.Model explorer view
+image::lgs-levels.png[width=20%]
+
+.Graphical view
+image::lgs-levels-org.png[width=60%]
+
+== Project description
+
+You will be working by teams of two (please fill the following link:{teamsURL}[shared document]).
+Each team will have to 
+
+. propose a requirement document, as you learned how to do it in the main course ({cours}),
+. propose a Stimulus version and analysis of the requirements through a report + source files.
+
+Each team will have its own branch (with the team name as naming root if many branches are used).
+
+The report should be in Asciidoc or Markdown format, pointing eventually to shared documents.
+
+=== Things to be done
+
+. Individually, install {stimulus} on your Windows computer:
+.. Launch the {stimulus} installer
+.. Generate the number required for the licence
+.. Send the email as required in order to get the licence file (for next course)
+. Add your group in the shared document: {teamsURL}
+. Read the <<source>> document
+. Organise the requirements according to the _Vision et Périmètre_ document studied in {cours} (=> 4h TD 5/11)
++
+TIP: For the section you are not able to complete, identify the activities (elicitation, analysis, v&v, ...) and actions (questions, inqueries, ...) that they would require.
++
+. Install and play with the Stimulus tool through the tutorial (=> 4h TD 7/11)
+. Implements (parts of) the requirements in Stimulus (=> 4h TD 14/11 morning)
+. Work on your reports / Finalize documents and push in repo (=> 2h TD 14/11 afternoon)
+
+=== Evaluation
+
+- The requirement document will be evaluated by Pierre-Jean Charrel as done in "TD".
+- The Stimulus report will be evaluated by Jean-Michel Bruel and the consistency and pertinence of the requirements will be mainly analysed.
+
+== Git Rules
+
+=== Workflow
+
+. Fork the repo
+
+. Create Branch
+.. Create Parent Branch
+- `groupName`/`issueName` (ex: `JMB_PJC/globalArchitecture`)
+.. Create Child Branch
+- `groupName`/`issueName`/`taskName` (ex: `JMB_PJC/globalArchitecture/changeNameTitle`)
+
+. Merge Request
+- Add a Template
+- Title: Task name (ex: `Change name title`)
+- Put "WIP: " in front of your title if unfinished (ex: `WIP: Change name title`)
+- Description: Tracking: #`issue id`
+- Description: Description: Make it clear and concise
+- Assign yourself
+- Use labels
+- 1 Approval required from me
+
+=== Useful commands
+
+|===
+|Command |What it does
+
+|```git checkout master```
+|Move into Branch
+
+|```git checkout -b groupName/issueName```
+|Create Parent Branch
+
+
+|```git checkout -b groupName/issueName/taskName```
+|Create Child Branch
+
+
+|```git pull origin groupName/issueName/taskName```
+|Add Branch data to your Branch
+
+
+|```git add -p```
+|Add content to your waiting commit
+
+
+|```git commit -m "Changed something"```
+|Name and close changes as a commit
+
+
+|```git push```
+|Send your commits to cloud
+|===
+
+== Contributors
+
+{teamsURL}[Contribution Table]
+
+[bibliography]
+== References
+
+- [[[source]]] The original article from Frédéric Boniol and Virginie Wiels: https://www.irit.fr/ABZ2014/landing_system.pdf.

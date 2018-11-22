@@ -1,0 +1,93 @@
+As shown in Figure 3, the landing gear system is composed of three parts: (i) a mechanical part which contains all the mechanical devices and the three landing sets, (ii )a digital part including the control software, and (iii) a pilot interface.
+To command the retraction and outgoing of gears, an Up/Down handle is provided to the pilot. 
+When the handle is switched to “Up” the retracting landing gear sequence is executed, when the handle is switched to “Down” the extending landing gear sequence is executed.
+The pilot has a set of lights giving the current position of gears and doors, and the current health state of the system and its equipments. 
+These lights are: (i) one green light: “gears are locked down”, (ii) one orange light: “gears maneuvering”, (iii) one red light: “landing gear system failure”.
+No light is on when the gears are locked up. 
+In case of failure, the pilot can manually activate the emergency hydraulic circuit. 
+The expected consequence of this action is to lock the gears in the down position. 
+In case of success and if the corresponding sensors are still working, the green light “gears are locked down” must be on.
+The architecture of the hydraulic part is described in Figure 4. 
+Each of the of three landing sets (front, left and right) has got: (i) a landing gear uplock box, and (ii) a door with two latching boxes in the closed position.
+The landing gears and doors motion is performed by a set of actuating cylinders.  
+The  cylinder  position  corresponds  to  the  door  or  landing  gear  position (when a door is open, the corresponding cylinder is extended). 
+The landing system has the following actuating cylinders:
+- For each door, a cylinder opens and closes the door.
+- For each landing gear, a cylinder retracts and extends the landing gear.
+
+Hydraulic power is provided to the cylinders by a set of electro-valves:
+- One general electro-valve which supplies the specific electro-valves with hydraulic power from the aircraft hydraulic circuit.
+- One electro-valve that sets pressure on the portion of the hydraulic circuit related to door opening.
+– One electro-valve that sets pressure on the portion of the hydraulic circuit related to door closing.
+– One electro-valve that sets pressure on the portion of the hydraulic circuit related to landing gear extending.
+– One electro-valve that sets pressure on the portion of the hydraulic circuit related to the landing gear retracting.
+Each electro-valve is activated by an electrical order coming from the digital part. 
+In the specific case of the general electro-valve, this electrical order goes through an analogical switch in order to prevent abnormal behavior of the digital part (e.g. abnormal activation of the general electro-valve).
+Note that the three doors (resp. gears) are controlled simultaneously by the same electro-valve. 
+Put differently, it is not possible to control the doors (resp. gears) separately.
+
+A set of discrete sensors inform the digital part about the state of the equipments:
+- Front / right / left gear is locked / not locked in the extended position.
+- Front / right / left gear is locked / not locked in the retracted position.
+- Front / right / left gear shock absorber is on ground / in flight.
+- Front / right / left door is in open / not open position.
+- Front / right / left door is locked / not locked in the closed position.
+- The hydraulic circuit (after the general electro-valve) is pressurized / not pressurized.
+– The analogical switch between the digital part and the general electro-valve
+is closed / open.
+
+In order to prevent sensor failures, each sensor is triplicated (i.e. each sensor is divided into three independent micro-sensors). 
+It delivers simultaneously three discrete values describing the same situation (for instance “the left gear is locked in retracted position”).
+
+The digital part is composed of two identical computing modules (see Figure 5). 
+Each one executes in parallel the same control software. 
+This software is in charge of controlling gears and doors, of detecting anomalies, and of informing the pilot about the global state of the system and anomalies (if any). 
+It is part of a retroaction loop with the physical system, and produces commands for the distribution elements of the hydraulic system with respect to the sensors values and the pilot orders. 
+The two computing modules receive the same inputs. 
+
+These inputs are (remember that all the inputs are triplicated):
+– handlei ∈ {up, down} i = 1, 2, 3
+handlei characterizes the position of the handle. 
+If the handle is UP (resp. DOWN), then handlei = up (resp. handlei = down).
+– analogical switchi ∈ {open, closed} i = 1, 2, 3
+analogical switchi characterizes the position of the analogical switch: open or closed. 
+– gear extendedi [x] ∈ {true, false} i = 1, 2, 3, x in {front, right, left}
+– gear retractedi [x] ∈ {true, false} i = 1, 2, 3, x in {front, right, left}
+gear extendedi [x] is true if the corresponding gear is locked in the extended position and false in the other case.
+gear retractedi [x] is true if the corresponding gear is locked in the retracted position and false in the other case (see Figure 11).
+– gear shock absorberi [x] ∈ {ground, flight} i = 1, 2, 3, x in {front, right, left}
+gear shock absorberi [x] is returned by a sensor implemented directly on the corresponding gear (see Figure 11). 
+It is true if and only if the aircraft is on ground.
+– door closedi [x] ∈ {true, false} i = 1, 2, 3, x in {front, right, left}
+– door openi [x] ∈ {true, false} i = 1, 2, 3, x in {front, right, left}
+door closedi [x] is true if and only if the corresponding door is locked closed.
+door openi [x] is true if and only if the corresponding door is locked open (see Figure 12).
+– circuit pressurizedi ∈ {true, false} i = 1, 2, 3
+circuit pressurizedi is returned by a pressure sensor on the hydraulic circuit between the general electro-valve and the maneuvering electro-valve (see Figure 4). 
+circuit pressurizedi is true if and only if the pressure is high in this part of the hydraulic circuit.
+The total amount of input discrete values received by each computing module is 54 (3 handle, 3 analogical switch, 9 gear extended, 9 gear retracted, 9 gear shock absorber, 9 door closed, 9 door open and 3 circuit pressurized).
+From these inputs, each module computes 5 electrical orders for the electrovalves:
+– general EVk ∈ {true, false} k = 1, 2
+– close EVk ∈ {true, false} k = 1, 2
+– open EVk ∈ {true, false} k = 1, 2
+– retract EVk ∈ {true, false} k = 1, 2
+– extend EVk ∈ {true, false} k = 1, 2
+where “EV” stands for “Electro-Valve” and 
+k stands for the number of the considered computing module. 
+These corresponding electrical orders outgoing from the two modules are physically produced on the same electrical line. 
+The implicit composition of two outputs is an electrical “OR” as shown in Figure 5. 
+For instance, let us consider the general EV parameter. 
+If the two modules produce the same value on general EV1 and general EV2 , then this value is produced to the general electro-valve. 
+Otherwise, if only one of them is true (because of a failure somewhere in the digital part), then the value true is produced to the electro-valve, even if it is not the correct value. 
+The problem will anyway be detected at the next cycle when the module that produced the false value will detect an unexpected behavior with respect to its own orders. 
+Then it will inform the pilot of a potential anomaly in the system.
+Similarly the two modules produce global boolean state variables to the cockpit:
+– gears locked downk ∈ {true, false} k = 1, 2
+– gears maneuveringk ∈ {true, false} k = 1, 2
+– anomalyk ∈ {true, false} k = 1, 2
+These outputs are synthesized by each module from sensors data and from the situation awareness. 
+Similarly to electrical orders provided to the electro-valves, the boolean state variables from the two modules are composed following a logical “OR” operation. 
+If gears locked downk (for some k) is sent to the pilot interface with the value true, then the green light “gears are locked down” is on.
+If gears maneuveringk (for some k) is sent to the pilot interface with the value true, then the orange light “gears maneuvering” is on. 
+If anomalyk (for some k) is sent to the pilot interface with the value true, then the red light “landing gear system failure” is on. 
+The output interface of each module is synthesized on Figure 6.

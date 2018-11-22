@@ -1,0 +1,14 @@
+All the electro-valves are supposed to have the same behavior. 
+As shown in Figure 9, an electro-valve is an hydraulic equipment which has got two hydraulic ports Hin (hydraulic input port) and Hout (hydraulic output port), and an electrical port (E ∈ {true, textitf alse).
+Its behavior depends on the value of the electrical order connected to E.
+– if E = false (the voltage of the electrical order is down), then Hout = 0 (no pressure on the hydraulic output side, the hydraulic circuit is open);
+– if E = true (the voltage of the electrical order is high), then Hout = Hin (the hydraulic circuit is closed);
+Note that the electrical order must be sustained to true (i..e, at the high voltage) to maintain the electro-valve in the closed position. 
+Put differently, the electrical order is not a discrete event, but can be seen as an analogical signal.
+Because of inertial reasons, we suppose that from the open position to the closed position, the pressure grows up continuously from 0 to Hin. 
+In this case study we suppose that the pressure grows up linearly, and that the total duration of the transition phase is 1 second. 
+In the same way, the pressure goes down continuously from Hin to 0. 
+We suppose that the pressure goes down linearly, and that the total duration of the transition phase is 3,6 seconds.
+In addition to this normal behavior, any electro-valve can fail. 
+We consider only permanent failures: the electro-valve remains blocked in the closed or the open state. 
+A failure can occur at any time.

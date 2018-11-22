@@ -1,0 +1,30 @@
+The aim of this switch is to protect the system against abnormal behavior of the digital part. 
+In order to prevent inadvertent order to the electro-valves, the general electro-valve can be stimulated only if this switch is closed. 
+The switch is closed each time the “Up/Down” handle is moved by the pilot, and it remains closed 20 seconds. 
+After this duration, the switch automatically becomes open.
+In the closed position, the switch transmits the electrical order from the digital part to the general electro-valve. 
+In the open position, no electrical order is sent to the electro-valve. 
+In that case, the oil pressure in the hydraulic circuit becomes down.
+Because of inertial reasons, the transition from the two states closed and open takes a given amount of time:
+– from open to closed: 0.8 second,
+– from closed to open 1.2 seconds.
+In addition to this normal behavior, the analogical switch can fail. 
+We consider only permanent failures: the switch remains blocked in the closed or in the open position. 
+A failure can occur at any time.
+The global behavior of the switch, including failures, is specified by the model of Figure 7 and the hierarchical hybrid automaton of Figure 8. 
+In this specification, in stands for the input value of the switch. 
+In the global architecture of Figure 4, the in port of the analogical switch is connected to the general EV output of the digital part (i.e., in = general EV). 
+The variable out stands for the electrical output of the switch. 
+It is connected to the electrical port of the general electro-valve. 
+The variable state is the logical output of the switch. It belongs to the set {open, closed}. 
+It is connected to the input port analogical switch of the digital part. Note that this output value is triplicated.
+The event handle? stands for the detection of a movement of the pilot handle.
+This event is received each time the pilot moves the handle. 
+And finally x is an internal continuous variable that evolves according to the differential equation in each state. 
+The aim of this variable is to count the time in each state. 
+For instance, in the state Open, x does not evolve, state is set to open, and out is set to 0 whatever the value of in. 
+When handle is received, x is set to 0.8, the state Intermediate1 is reached and x begins to decrease. 
+The values of state and out remain unchanged. 0.8 seconds later, x reached the null value. 
+The transition from Intermediate1 to Close is fired and x is set to 20. state is now set to closed and out is set to in. And so on. 
+The initial state of the automaton is Open.
+Note that the switch is independent from the digital part.

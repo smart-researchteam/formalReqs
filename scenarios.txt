@@ -1,0 +1,41 @@
+The aim of the software part of the system is twofold:
+1. to control the hydraulic devices according to the pilot orders and to the mechanical devices positions;
+2. to monitor the system and to inform the pilot in case of anomaly.
+When the command line is working (in normal mode), the landing system reacts to the pilot orders by actioning or inhibiting the electro-valves of the appropriate cylinders. 
+Two basic scenarios are considered: the outgoing sequence, and the retraction sequence.
+
+Outgoing sequence:
+The outgoing of gears is decomposed in a sequence of elementary actions. 
+When the gears are locked in retracted position, and the doors are locked in closed position, if the pilot sets the handle to “Down”, then the software should have the following sequence of actions:
+1. stimulate the general electro-valve isolating the command unit in order to send hydraulic pressure to the maneuvering electro-valves,
+2. stimulate the door opening electro-valve,
+3. once the three doors are in the open position, stimulate the gear outgoing electro-valve,
+4. once the three gears are locked down, stop the stimulation of the gear outgoing electro-valve,
+5. stop the stimulation of the door opening electro-valve,
+6. stimulate the door closure electro-valve,
+7. once the three doors are locked in the closed position, stop the stimulation of the door closure electro-valve,
+8. and finally stop stimulating the general electro-valve.
+
+Retraction sequence: 
+In the same way, the retraction of gears is decomposed in a sequence of elementary actions. 
+When the gears are locked in down position, and the doors are locked in closed position, if the pilot sets the handle to “Up”, then the software should have the following sequence of actions:
+1. stimulate the general electro-valve isolating the command unit, in order to send hydraulic pressure to the maneuvering electro-valves,
+2. stimulate the door opening electro-valve,
+3. once the three doors are in the open position, if the three shock absorbers are relaxed, then stimulate the gear retraction electro-valve and go to step 4, else (if one of the three shock absorbers is not relaxed) go to step 5,
+4. once the three gears are locked up, stop the stimulation of the gear retraction electro-valve,
+5. stop the stimulation of the door opening electro-valve,
+6. stimulate the door closure electro-valve,
+7. once the three doors are locked in the closed position, stop the stimulation of the door closure electro-valve,
+8. and finally stop stimulating the general electro-valve.
+
+The previous sequences should be interruptible by counter orders (a retraction order occurs during the let down sequence and conversely) at any time. 
+In that case, the scenario continues from the point where it was interrupted. 
+For instance, if an outgoing sequence is interrupted in the door closure phase (step 6 of the outgoing sequence) by an “Up” order, then the stimulation of the door closure electro-valve is stopped, and the retraction sequence is executed from step 2: the door opening electro-valve is stimulated and the doors begin opening again. 
+Afterwards, the scenario continues up to the final step or up to a new interruption.
+
+Interaction with the cockpit. 
+Each control software k ∈ {1, 2}1 computes the three state booleans gears locked downk , gears maneuveringk and anomalyk.
+– gears locked downk = true if and only if the three gears are seen as locked in extended position (sensor gear extended[x] = true ∀x ∈ {front, right, left}).
+– gears maneuveringk = true if and only if at least one door or one gear is maneuvering, i.e., at least one door is not locked in closed position or one
+gear is not locked in extension or retraction position.
+– anomalyk is specified in section 4.3.
