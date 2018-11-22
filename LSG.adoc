@@ -1,3 +1,7 @@
+:projectURL: https://github.com/smart-researchteam/formalReqs
+:imagesdir: images
+:icons: font
+
 == Description of the case study
 
 Here's the description of the LGS.
